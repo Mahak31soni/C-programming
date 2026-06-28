@@ -1,3 +1,19 @@
+Using Hash Map(PY):
+arr = [4,1,7,6,8]
+res = []
+length = len(arr)
+hash= [0] * 10
+
+for i in range(length):
+	hash[arr[i]] = 1
+print(hash)
+for i in range(len(hash)):
+    if hash[i] == 1:
+        res.append(i)
+print(res)
+
+
+Using C++
 #include <iostream>
 using namespace std;
 
