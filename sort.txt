@@ -1,3 +1,32 @@
+Using Hash Map(C++):
+#include <iostream>
+using namespace std;
+
+int main() {
+    int arr[5] = {4,1,7,6,8};
+    int length = sizeof(arr) / sizeof(arr[0]);
+    int res[5];
+    int l = 0;
+    int hash[10] = {0};
+    for(int i = 0; i< 5; i ++)
+    {
+        hash[arr[i]] = 1; 
+    }
+    
+    for(int i = 0; i < 10; i++)
+    {cout << hash[i]<<" ";}
+    cout << endl;
+    for(int i = 0; i<10; i++)
+    {  if (hash[i] == 1)
+        {res[l] = i;
+        l++; }
+    } 
+    for(int i = 0; i < 5; i++)
+    {cout << res[i]<<" ";}
+    return 0;
+}
+
+
 Using Hash Map(PY):
 arr = [4,1,7,6,8]
 res = []
