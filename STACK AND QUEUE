@@ -1,4 +1,4 @@
-// Stack using Array in C++
+//////////////////////////////////////////////// Stack using Array in C++
 #include <iostream>
 #include <bits/stdc++.h>
 using namespace std;
@@ -51,7 +51,7 @@ int main() {
 
 
 
-// QUEUE USING ARRAY in C++
+///////////////////////////////////////////////////// QUEUE USING ARRAY in C++
 #include <iostream>
 #include <bits/stdc++.h>
 using namespace std;
@@ -115,8 +115,7 @@ int main() {
     return 0;
 }
 
-
-//stack using linked list (Dynamic Stack) in c++
+/////////////////////////////////////////////////////////////stack using linked list (Dynamic Stack) in c++
 
 #include <iostream>
 #include <bits/stdc++.h>
@@ -174,7 +173,7 @@ int main() {
 }
 
 
-//queue using linked list (Dynamic queue) in c++
+//////////////////////////////////////////////////queue using linked list (Dynamic queue) in c++
 // Online C++ compiler to run C++ program online
 #include <iostream>
 #include <bits/stdc++.h>
@@ -242,7 +241,7 @@ int main() {
 }
 
 
-//STACK USING ARRAY IN C
+////////////////////////////////////////////////////STACK USING ARRAY IN C
 // Online C compiler to run C program online
 #include <stdio.h>
 #define MAX 5
@@ -299,4 +298,64 @@ int main() {
     display();
 
     return 0;
+}
+
+
+///////////////////////////////////////////////stack using LL in C
+#include<stdlib.h>
+#include <stdio.h>
+struct Node
+{
+    int data;
+    struct Node* next;
+};
+
+struct Node* top = NULL;
+
+void push(int x)
+{
+    struct Node* temp = (struct Node*)malloc(sizeof(struct Node));
+    temp->data = x;
+    temp->next= top;
+    top = temp;
+}
+void pop()
+{
+    if(top == NULL)
+    {printf("stack underflow");
+        return;
+    }
+    struct Node* temp  = top;
+    top = top->next;
+    free(temp);
+}
+
+void peek()
+{
+    if(top == NULL)
+    {
+        printf("Stack Underflow\n");
+        return;
+    }
+    printf("Peek %d\n",top->data);
+}
+
+void display()
+{
+    if(top == NULL)
+    {printf("stack underflow");
+        return;
+    }
+    struct Node* temp = top;
+    while(temp != NULL)
+    {
+        printf("%d\n",temp->data);
+        temp= temp->next;
+    }
+}
+int main()
+{
+    push(5);
+    peek();
+    display();
 }
