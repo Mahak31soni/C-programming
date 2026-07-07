@@ -1,0 +1,368 @@
+Interview Questions-
+Level 1: Basic (Must Know)
+
+Q1.What is function overloading?
+
+Q2.Can we overload functions by changing only the return type?
+
+int show();
+double show();
+
+Q3.What is a function signature?
+
+Q4.
+
+Why is the return type not part of the function signature?
+
+Q5.
+
+Can main() be overloaded?
+
+Q6.
+
+Can member functions be overloaded?
+
+Q7.
+
+Can constructors be overloaded?
+
+Level 2: Compiler Resolution (Very Important)
+Q8.
+
+How does the compiler choose which overloaded function to call?
+
+Q9.
+
+Explain overload resolution with an example.
+
+Q10.
+
+What is an Exact Match?
+
+Q11.
+
+What is Integral Promotion?
+
+Examples:
+
+char → int
+short → int
+bool → int
+Q12.
+
+What is Standard Conversion?
+
+Examples:
+
+int → long
+int → float
+int → double
+Q13.
+
+What is User Defined Conversion?
+
+Example using constructors or conversion operators.
+
+Q14.
+
+Explain the priority order used during overload resolution.
+
+Expected answer
+
+Exact Match
+
+↓
+
+Promotion
+
+↓
+
+Standard Conversion
+
+↓
+
+User Defined Conversion
+
+↓
+
+Ellipsis (...)
+Level 3: Ambiguity (Favorite Interview Topic)
+Q15.
+void show(long);
+void show(double);
+
+show(10);
+
+Why ambiguity?
+
+Q16.
+void show(int,float=10);
+void show(int);
+
+show(5);
+Q17.
+void show(int);
+void show(int,int=0);
+
+show(5);
+Q18.
+void show(char);
+void show(short);
+
+show(10);
+Q19.
+
+What causes ambiguity?
+
+Level 4: References (Most Important)
+Q20.
+void show(int&);
+void show(const int&);
+Q21.
+int a=10;
+
+show(a);
+Q22.
+show(10);
+Q23.
+
+Why can't int& bind to temporary objects?
+
+Q24.
+
+Why can const int& bind to temporary objects?
+
+Q25.
+
+Difference between
+
+int&
+
+and
+
+const int&
+Level 5: Lvalue/Rvalue (Very Important)
+Q26.
+
+Difference between Lvalue and Rvalue.
+
+Q27.
+
+Examples of Lvalues.
+
+Q28.
+
+Examples of Rvalues.
+
+Q29.
+
+Is
+
+a+b
+
+Lvalue or Rvalue?
+
+Q30.
+
+Why
+
+int &x = a+b;
+
+fails?
+
+Q31.
+
+Why
+
+const int &x = a+b;
+
+works?
+
+Q32.
+
+When does the compiler create temporary objects?
+
+Level 6: Pointer Overloading
+Q33.
+void show(int*);
+void show(float*);
+Q34.
+void show(int*);
+void show(void*);
+Q35.
+
+Why is
+
+int* → void*
+
+Standard Conversion?
+
+Level 7: NULL vs nullptr (⭐⭐⭐⭐⭐)
+Q36.
+
+What is NULL?
+
+Q37.
+
+Why was nullptr introduced?
+
+Q38.
+
+Difference between NULL and nullptr.
+
+Q39.
+show(NULL);
+Q40.
+show(nullptr);
+Q41.
+void show(void*);
+void show(char*);
+
+show(nullptr);
+
+Why ambiguity?
+
+Level 8: Arrays
+Q42.
+void show(int[]);
+void show(int*);
+
+Why error?
+
+Q43.
+
+Explain Array Decay.
+
+Q44.
+void show(int[]);
+void show(char[]);
+
+Why valid?
+
+Level 9: Templates
+Q45.
+template<typename T>
+void show(T);
+
+void show(int);
+
+show(10);
+Q46.
+template<typename T>
+void show(T);
+
+void show(double);
+
+show(10);
+Q47.
+
+When does the template win?
+
+Q48.
+
+When does the normal function win?
+
+///////////////////////////////////////////////////////////////////////////////////Level 10: Advanced
+Q49.
+
+How does overload resolution work internally?
+
+Q50.
+
+What happens during name mangling?
+
+Q51.
+
+How does the compiler generate mangled names?
+
+Q52.
+
+Can C support function overloading?
+
+Why not?
+
+Q53.
+
+Why does C++ support overloading but C doesn't?
+
+Q54.
+
+Can virtual functions be overloaded?
+
+Q55.
+
+Difference between Overloading and Overriding.
+
+Q56.
+
+Difference between Compile-time and Runtime polymorphism.
+
+Q57.
+
+Can overloaded functions be virtual?
+
+Q58.
+
+Can static member functions be overloaded?
+
+Q59.
+
+Can friend functions be overloaded?
+
+Q60.
+
+How does overload resolution interact with inheritance?
+
+////////////////////////////////////////////////////////////////////////////////////////Coding Questions
+Coding 1
+
+Implement Calculator using function overloading.
+
+Coding 2
+
+Overload max() for
+
+int
+float
+double
+Coding 3
+
+Implement overloaded swap().
+
+Coding 4
+
+Implement overloaded area().
+
+Circle
+
+Rectangle
+
+Triangle
+
+Coding 5
+
+Implement overloaded print().
+
+Coding 6
+
+Predict compiler output.
+
+(These are the kinds of code snippets we've been solving.)
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+Function Signature
+Why return type isn't considered
+Overload Resolution Algorithm
+Exact Match vs Promotion vs Standard Conversion
+Ambiguity
+const references
+Lvalue vs Rvalue
+Temporary objects
+NULL vs nullptr
+Array decay
+Function Templates vs Overloading
+Name Mangling
+Overloading vs Overriding
+Compile-time vs Runtime Polymorphism
+Real-world use of overloading in the C++ Standard Library
