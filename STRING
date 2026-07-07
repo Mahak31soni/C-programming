@@ -1,3 +1,23 @@
+////////////////////////////////// Write a Program Convert uppercase to lowercase without using library
+
+#include <iostream>
+using namespace std;
+
+int main() {
+   string str = "MAHAK SONI";
+   int len = str.length();
+   for(int i = 0; i <len; i++)
+   {    if(str[i] == ' ')
+        {
+            cout<< ' '; 
+        }
+        else{cout<<char(int(str[i])+32);}
+       
+   }
+    return 0;
+}
+
+
 ///////////////////////////////////using substr O(n)
 Problem 1: Reverse the Order of Words
 Input: "virat kholi is the best"
