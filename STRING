@@ -1,3 +1,37 @@
+// Print all the duplicate characters in a string
+// Input: s = "keepupthegoodwork"
+// Output: ['e', 3], ['p', 2], ['o', 3], ['k', 2]
+
+#include <iostream>
+using namespace std;
+
+int main() {
+   string str = "keepupthegoodwork";
+   int len = str.length();
+   int count=0;
+   int hash[26] = {0};
+   for(int i=0; i<len; i++)
+   {
+       hash[str[i]-'a']++;
+   }
+   for(int i =0; i<26; i++)
+   {
+       if(hash[i] > 1)
+       {cout<<"['"<<char(i+'a')<<"' ,"<<hash[i]<<']';}
+   }
+   return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
 ////////////////////////////////// Write a Program Convert uppercase to lowercase without using library
 
 #include <iostream>
