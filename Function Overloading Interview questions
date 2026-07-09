@@ -366,3 +366,201 @@ Name Mangling
 Overloading vs Overriding
 Compile-time vs Runtime Polymorphism
 Real-world use of overloading in the C++ Standard Library
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+Part 1: Function Overloading (25 Questions)
+Basics
+What is function overloading?
+Why is function overloading called compile-time polymorphism?
+How does the compiler differentiate overloaded functions?
+Can functions be overloaded only by changing the return type?
+Can constructors be overloaded?
+Can destructors be overloaded?
+Can the main() function be overloaded?
+Compiler Resolution
+Explain overload resolution.
+What is the priority order during overload resolution?
+What is an exact match?
+What is promotion?
+What is standard conversion?
+What is user-defined conversion?
+What is ellipsis (...) conversion?
+Why is exact match preferred over promotion?
+Ambiguity
+What causes ambiguous overload resolution?
+Give an example of ambiguous overload resolution.
+How can ambiguity be resolved?
+Why does NULL sometimes cause ambiguity?
+Why is nullptr introduced in C++11?
+Pointers & References
+How are overloaded functions resolved with pointers?
+Difference between char*, void*, and nullptr during overload resolution.
+Function overloading with references.
+Function overloading with const references.
+Difference between pointer overload and reference overload.
+Part 2: Constructor Overloading (35 Questions)
+Basics
+What is constructor overloading?
+Why do we overload constructors?
+What is the advantage of constructor overloading?
+Can constructors have default arguments?
+Can constructor overloading cause ambiguity?
+Default Constructor
+What is a default constructor?
+When does the compiler generate a default constructor?
+When will the compiler not generate a default constructor?
+What values are assigned by the compiler-generated constructor?
+Difference between user-defined and compiler-generated constructors.
+Parameterized Constructor
+What is a parameterized constructor?
+Why do we use parameterized constructors?
+Constructor selection rules.
+Constructor overload resolution.
+Exact match vs promotion in constructor overloading.
+Copy Constructor
+What is a copy constructor?
+Why is the copy constructor parameter const Student&?
+Why not Student instead of Student&?
+When is the copy constructor called?
+Difference between initialization and assignment.
+Shallow Copy
+What is shallow copy?
+Why is shallow copy dangerous?
+What problems does shallow copy create?
+Explain double free.
+Explain dangling pointer.
+Explain shared memory problem.
+Deep Copy
+What is deep copy?
+Why do we need deep copy?
+Difference between shallow copy and deep copy.
+Memory layout of deep copy.
+Why allocate new memory during deep copy?
+Destructor
+Why is destructor needed?
+What happens if destructor is not written?
+Why does shallow copy create double deletion?
+How does deep copy solve double deletion?
+Part 3: Copy Assignment Operator (15 Questions)
+Difference between copy constructor and copy assignment.
+When is copy assignment called?
+Explain operator=.
+Why return Student&?
+Why pass const Student&?
+Explain self-assignment.
+Why check this == &other?
+Why delete old memory first?
+Why allocate new memory?
+What happens if old memory isn't deleted?
+Difference between assignment and initialization.
+Explain memory leak.
+Explain resource ownership.
+Why return *this?
+Difference between shallow assignment and deep assignment.
+Part 4: Operator Overloading (45 Questions)
+Basics
+What is operator overloading?
+Why is operator overloading needed?
+Which operators can be overloaded?
+Which operators cannot be overloaded?
+Why is operator overloading compile-time polymorphism?
+Can we create new operators?
+Can operator precedence be changed?
+Can operator associativity be changed?
+Can operator overloading change operator meaning for built-in types?
+Member Operator
+How does compiler convert c1 + c2?
+Explain c1.operator+(c2).
+Why does member operator have this?
+Why is left operand this?
+When should member operator be preferred?
+Friend Operator
+What is a friend operator?
+Why use a friend operator?
+Difference between member and friend operator.
+Why doesn't a friend function have this?
+Why can't member operator support 10 + c1?
+Explain operator+(c1, c2).
+Binary Operators
+How is binary + overloaded?
+Why create a temporary object?
+Why return the temporary object?
+Should we return by value or reference?
+Why pass operands as const&?
+Unary Operators
+Difference between unary and binary operator overloading.
+How does compiler convert ++c1?
+Explain this in unary operators.
+Prefix & Postfix
+Difference between prefix and postfix ++.
+Why does postfix use a dummy int?
+Why does postfix create a temporary object?
+Why is prefix faster than postfix?
+What does postfix return?
+What does prefix return?
+Explain operator++() vs operator++(int).
+Stream Operators (<<, >>) ⭐ (We skipped implementation)
+Why is << overloaded using a friend function?
+Why can't << be a member of your class?
+Why does operator<< return ostream&?
+Why return a reference instead of an object?
+Explain operator chaining (cout << a << b).
+Why is ostream passed by reference?
+Explain overloading of >>.
+Why does cin >> obj work?
+Comparison Operators
+How would you overload ==?
+How would you overload <, >, <=, >=?
+Part 5: Remaining Topics (Advanced)
+
+These are the topics we intentionally postponed but should still be in your interview list.
+
+Initialization List
+What is an initializer list?
+Why is it faster than assignment inside the constructor?
+When is an initializer list mandatory?
+Can const members be initialized inside the constructor body?
+Can reference members be assigned inside the constructor body?
+Explicit Constructor
+What is an explicit constructor?
+Why is explicit needed?
+Prevent implicit conversion example.
+Difference between implicit and explicit constructors.
+Constructor Delegation
+What is constructor delegation?
+Why was it introduced?
+Advantages over duplicate code.
+Move Constructor
+What is a move constructor?
+Difference between copy and move constructor.
+What is an rvalue?
+Why is move constructor faster?
+What is move semantics?
+Rule of Three / Rule of Five
+What is the Rule of Three?
+What is the Rule of Five?
+Why are these rules important?
+When should you implement them?
+Difference between Rule of Three and Rule of Five.
+⭐ Top 20 Most Important Questions (Revise Before Every Interview)
+What is compile-time polymorphism?
+Function overloading vs function overriding.
+Explain overload resolution.
+Exact match vs promotion vs standard conversion.
+Why can't functions be overloaded by return type?
+Constructor overloading.
+Copy constructor.
+Copy constructor vs assignment operator.
+Shallow copy vs deep copy.
+Why is shallow copy dangerous?
+Double free.
+Why const Student& in copy constructor?
+Why return Student& from operator=?
+Self-assignment check.
+Why operator overloading is compile-time polymorphism?
+Member vs friend operator overloading.
+Prefix vs postfix ++.
+Why postfix uses a dummy int?
+Why << is overloaded as a friend function?
+Operators that cannot be overloaded.
