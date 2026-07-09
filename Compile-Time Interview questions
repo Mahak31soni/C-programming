@@ -564,3 +564,331 @@ Prefix vs postfix ++.
 Why postfix uses a dummy int?
 Why << is overloaded as a friend function?
 Operators that cannot be overloaded.
+
+
+//////////////////////////////////////////////////////////coding interview queestions
+Part 1: Function Overloading (20 Coding Questions)
+Output Prediction
+Q1
+void show(int);
+void show(double);
+
+int main()
+{
+    show(10);
+}
+Q2
+void show(int);
+void show(long);
+
+int main()
+{
+    char c='A';
+    show(c);
+}
+Q3
+void show(float);
+void show(double);
+
+int main()
+{
+    show(10);
+}
+Q4
+void show(int&);
+void show(const int&);
+
+int main()
+{
+    show(10);
+}
+Q5
+void show(char*);
+void show(void*);
+
+int main()
+{
+    char str[]="Hi";
+    show(str);
+}
+Q6
+void show(int*);
+void show(char*);
+
+int main()
+{
+    show(nullptr);
+}
+Q7
+template<typename T>
+void show(T);
+
+void show(int);
+
+int main()
+{
+    show(10);
+}
+Q8
+template<typename T>
+void show(T);
+
+void show(double);
+
+int main()
+{
+    show('A');
+}
+Q9
+void show(int);
+void show(...);
+
+int main()
+{
+    show('A');
+}
+Q10
+void show(long);
+void show(double);
+
+int main()
+{
+    show(10);
+}
+Implementation Questions
+Write overloaded functions for int, double, and string.
+Write an overloaded area() function for:
+Circle
+Rectangle
+Triangle
+Overload swap() for:
+int
+float
+string
+Overload max() for:
+int
+float
+char
+Write overloaded constructors and overloaded functions together.
+Compiler Questions
+Why does this produce ambiguity?
+Which overload is selected?
+Explain overload resolution step-by-step.
+Which conversion rank is used?
+How can ambiguity be removed?
+Part 2: Constructor Overloading (20 Coding Questions)
+Output Prediction
+Q1
+class Student
+{
+public:
+    Student()
+    {
+        cout<<"Default";
+    }
+
+    Student(int)
+    {
+        cout<<"Integer";
+    }
+};
+
+int main()
+{
+    Student s;
+}
+Q2
+Student s(10);
+
+Which constructor?
+
+Q3
+Student s('A');
+
+Which constructor?
+
+Q4
+Student s(10L);
+
+Output?
+
+Q5
+Student s(10.5f);
+
+Ambiguous or not?
+
+Copy Constructor
+Predict output.
+Student s1;
+
+Student s2=s1;
+Q7
+
+Pass object by value.
+
+Which constructor is called?
+
+Q8
+
+Return object from function.
+
+Which constructor is called?
+
+Q9
+
+Why is this wrong?
+
+Student(Student s)
+Q10
+
+Why is this correct?
+
+Student(const Student&)
+Deep vs Shallow
+Predict output.
+Explain memory.
+Explain double delete.
+Find memory leak.
+Fix shallow copy.
+Copy Assignment
+Implement copy assignment.
+Explain self-assignment.
+Explain this==&other.
+Explain return *this.
+Difference between initialization and assignment.
+Part 3: Operator Overloading (35 Coding Questions)
+Binary Operator
+Q1
+
+Implement
+
+Complex c3=c1+c2;
+Q2
+
+Predict output.
+
+Complex c3=c1+c2+c4;
+Q3
+
+Trace memory.
+
+Unary Operator
+Q4
+
+Implement
+
+++c1;
+Q5
+
+Implement
+
+c1++;
+Q6
+
+Difference in output.
+
+Prefix/Postfix
+Q7
+
+Predict output.
+
+Complex c2=++c1;
+Q8
+
+Predict output.
+
+Complex c2=c1++;
+Friend Operator
+Q9
+
+Why does
+
+10+c1;
+
+fail?
+
+Q10
+
+Implement friend operator+.
+
+Stream Operator
+Q11
+
+Implement
+
+cout<<c1;
+Q12
+
+Implement
+
+cin>>c1;
+Q13
+
+Explain
+
+cout<<c1<<c2;
+Comparison
+Q14
+
+Implement
+
+==
+Q15
+
+Implement
+
+<
+Q16
+
+Implement
+
+>
+Assignment
+Q17
+
+Implement
+
+operator=
+Subscript
+Q18
+
+Implement
+
+[]
+Function Call
+Q19
+
+Implement
+
+()
+Mixed Questions
+Can += be overloaded?
+Can ++ be overloaded?
+Can :: be overloaded?
+Can sizeof be overloaded?
+Why not?
+Can precedence change?
+Can associativity change?
+Explain compiler conversion.
+Explain member operator.
+Explain friend operator.
+Why postfix is slower?
+Why return reference?
+Why pass const&?
+Trace memory of operator overloading.
+Find bug in overloaded operator.
+Design a Complex class supporting +, -, *, ==, <<, >>.
+⭐ FAANG-Level Coding Questions (Very Important)
+
+These are the ones I recommend solving without looking at notes:
+
+Implement a Complex class with all arithmetic operators.
+Implement a Fraction class supporting +, -, *, /.
+Implement a String class with deep copy, copy constructor, assignment operator, destructor, and +.
+Implement a Matrix class with +, ==, and [].
+Implement a Date class with comparison operators.
+Implement a Student class following the Rule of Three.
+Explain and fix a program with a shallow copy bug.
+Predict outputs of tricky overload resolution examples.
+Explain why cout << obj requires a friend function.
+Implement both prefix and postfix ++ correctly and explain the difference.
