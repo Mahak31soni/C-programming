@@ -1,3 +1,41 @@
+1.	About Memory
+2.	Address Operator
+3.	Pointers Variables
+a.	Declaration Of Pointer Variables
+b.	Assigning Address To Pointer Variables 
+c.	Dereferencing Pointer Variables
+4.	Pointer Arithmetic
+5.	Precedence Of Dereferencing Operator And Increment/Decrement Operators
+6.	Pointer Comparisons
+7.	Pointer To Pointer
+8.	Pointers and One Dimensional Arrays 
+9.	Subscripting Pointer Variables
+10.	Pointer to an Array
+11.	Pointers And Two Dimensional Arrays 
+12.	Subscripting Pointer To An Array
+13.	Pointers And Three Dimensional Arrays
+14.	Pointers And Functions
+15.	Returning More Than One Value From A Function
+16.	Function Returning Pointer
+17.	Passing a 1-D Array to a Function
+18.	Passing a 2-D Array to a Function
+19.	Array Of Pointers 
+20.	void Pointers
+21.	Dynamic Memory Allocation 
+a.	malloc()
+b.	calloc()
+c.	realloc()
+d.	free()
+e.	Dynamic Arrays 
+22.	Pointers To Functions 
+a.	Declaring A Pointer To A Function 
+b.	Calling A Function Through Function Pointer 
+c.	Passing a Function's Address as an Argument to Other Function
+d.	Using Arrays Of Function Pointers
+
+
+
+
 What is dynamic memory allocation?
 Memory allocated during runtime from the heap using:
 malloc()
