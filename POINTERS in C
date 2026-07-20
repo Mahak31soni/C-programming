@@ -1,0 +1,200 @@
+What is dynamic memory allocation?
+Memory allocated during runtime from the heap using:
+malloc()
+calloc()
+realloc()
+free()
+Example:
+int *p = (int*)malloc(sizeof(int));
+
+
+Difference between stack and heap
+Automatic -Stack
+Manual Heap
+Fast Stack
+Slower Heap
+Freed automatically Stack
+Must call free() Heap
+Limited size Stack
+Larger size Heap
+
+What does malloc() return?
+Returns a void pointer (void*)
+Points to the allocated memory block
+Returns NULL if allocation fails
+int *p = malloc(sizeof(int));
+
+
+Why do we check for NULL?
+if(p == NULL)
+{
+    printf("Memory allocation failed");
+}
+If the heap has insufficient memory, malloc() returns NULL. Using a NULL pointer causes undefined behavior.
+
+
+Difference between malloc() and calloc()
+malloc
+calloc
+One argument (bytes)
+Two arguments (count, size)
+Memory contains garbage values
+Memory initialized to 0
+Slightly faster
+Slightly slower
+int *a = malloc(5 * sizeof(int));
+int *b = calloc(5, sizeof(int));
+
+What is realloc()?
+Changes the size of an already allocated memory block.
+p = realloc(p, 10 * sizeof(int));
+May return the same address
+May return a new address
+Old data is preserved (up to the minimum of old and new sizes)
+
+What happens if realloc() fails?
+p = realloc(p, new_size);
+If it fails, p becomes NULL and the old memory is lost.
+int *temp = realloc(p, new_size);
+if(temp != NULL)
+{
+    p = temp;
+}
+
+
+What is a memory leak?
+Memory allocated on the heap but never freed
+int *p = malloc(sizeof(int));
+// free(p); missing
+After the pointer goes out of scope, the memory remains allocated and becomes unreachable.
+
+What is a dangling pointer?
+A pointer that points to memory that has already been freed.
+int *p = malloc(sizeof(int));
+
+free(p);
+
+*p = 10;   // ❌ Dangling pointer use
+
+Prevention
+free(p);
+p = NULL;
+
+Difference between memory leak and dangling pointer
+Memory Leak
+Dangling Pointer
+Memory not freed
+Memory freed but pointer still used
+Wastes memory
+Can crash the program
+Pointer lost
+Pointer still exists
+
+Why is free(NULL) safe?
+The C standard guarantees that:
+free(NULL);
+does nothing. No crash occurs.
+
+What is a double free?
+free(p);
+free(p);   // ❌
+Freeing the same memory block twice causes undefined behavior and may corrupt the heap.
+Prevention
+free(p);
+p = NULL;
+
+Where is dynamically allocated memory stored?
+In the heap segment.
+The pointer variable itself is usually stored on the stack.
+Example:
+int *p = malloc(sizeof(int));
+Memory:
+Stack: p (address)
+Heap : allocated int
+
+
+What is the size of allocated memory?
+Trick Question
+int *p = malloc(10 * sizeof(int));
+printf("%zu", sizeof(p));
+Prints 8 on a 64-bit system (pointer size), not 40.
+sizeof(p) gives the size of the pointer, not the allocated block.
+
+
+
+Q1. Allocate an array of n integers
+int n;
+scanf("%d", &n);
+
+int *arr = malloc(n * sizeof(int));
+
+if(arr == NULL)
+{
+    return 1;
+}
+
+free(arr);
+
+
+Resize the array
+int *temp = realloc(arr, 2 * n * sizeof(int));
+
+if(temp != NULL)
+{
+    arr = temp;
+}
+
+
+
+
+Create a 3 × 4 dynamic 2D array--------------*****************************************************************************************
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int rows = 3;
+    int columns = 4;
+    
+    int ** a;//a will point to row pointers
+    
+    a = (int**) malloc(rows*sizeof(int*));//create space for 3 row pointers
+    
+    for(int i=0;i<rows; i++)
+    {
+        a[i] = malloc(columns*sizeof(int));
+    }
+    
+    int value = 0;
+    for(int i = 0; i<rows; i++)
+    {
+        for(int j= 0; j<columns; j++)
+        {
+            a[i][j] = value++;
+        }
+    }
+    // Print the array
+    for(int i = 0; i < rows; i++)
+    {
+        for(int j = 0; j < columns; j++)
+        {
+            printf("%d ", a[i][j]);
+        }
+        printf("\n");
+    }
+
+    // Free each row
+    for(int i = 0; i < rows; i++)
+    {
+        free(a[i]);
+    }
+
+    // Free the row-pointer array
+    free(a);
+
+    return 0;
+    
+}
+
+a[i][j] = *(*(a+i)+j)
+
